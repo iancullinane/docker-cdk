@@ -3,8 +3,8 @@ FROM alpine:3.10
 USER root
 WORKDIR /root/cdkbot
 
-RUN apk add --no-cache nodejs npm make gcc libc-dev git docker 
+RUN apk add --no-cache nodejs npm make gcc libc-dev git go
 
-COPY ./tasks/cdk-tasks .
+COPY ./bin/docker-cdk .
 
-ENTRYPOINT ["./cdk-tasks"]
+ENTRYPOINT ["./docker-cdk"]
