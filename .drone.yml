@@ -8,13 +8,13 @@ steps:
     commands:
       - ./build/build.sh
 
-  - name: docker
+  - name: docker push
     image: plugins/docker
     settings:
-      repo: eignhpants/ecr-puller
+      repo: eignhpants/docker-cdk
       username:
         from_secret: dh_user_name
       password:
         from_secret: dh_pw
     publish:
-      image: eignhpants/ecr-puller
+      image: eignhpants/docker-cdk
