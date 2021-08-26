@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+
+# Pipeline for putting cloudformation files into S3 for nested stacks
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: eignhpants/ecr-puller
+      username:
+        from_secret: dh_user_name
+      password:
+        from_secret: dh_pw
+    publish:
+      image: eignhpants/ecr-puller
